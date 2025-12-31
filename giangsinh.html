@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merry Christmas 🎄</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #081a2b, #163b5c, #2a5d8f);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(255,255,255,0.18), rgba(0,0,0,0.65));
+    }
+
+    .stars span {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+    }
+
+    .moon {
+      position: absolute;
+      top: 8%;
+      right: 10%;
+      width: 120px;
+      height: 120px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 40px rgba(255,255,255,0.7);
+    }
+
+    .ground {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(to top, #ffffff, #d9edff);
+    }
+
+    .church {
+      position: absolute;
+      bottom: 22%;
+      left: 6%;
+      font-size: 220px;
+      opacity: 0.95;
+      filter: drop-shadow(0 0 30px rgba(255,255,255,0.6));
+      animation: churchGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes churchGlow {
+      0% { text-shadow: 0 0 8px #fff; }
+      50% { text-shadow: 0 0 35px #ffe9a8; }
+      100% { text-shadow: 0 0 8px #fff; }
+    }
+
+    .tree-scene {
+      position: absolute;
+      bottom: 25%;
+      right: 10%;
+      font-size: 160px;
+      filter: drop-shadow(0 0 25px rgba(0,255,180,0.5));
+      animation: treeGlow 2.5s infinite alternate;
+    }
+
+    @keyframes treeGlow {
+      from { text-shadow: 0 0 15px #3cffb0; }
+      to { text-shadow: 0 0 45px #3cffb0; }
+    }
+
+    .card {
+      position: relative;
+      z-index: 5;
+      max-width: 520px;
+      margin: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.16);
+      backdrop-filter: blur(14px);
+      border-radius: 26px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.55);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    h1 { font-size: 46px; margin: 10px 0; }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    .tree {
+      font-size: 90px;
+      cursor: pointer;
+      animation: glow 2s infinite alternate;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 28px;
+      font-size: 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(45deg, #ff4b2b, #ff416c);
+      color: white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .arrow {
+      animation: pulse 1.5s infinite;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .snow {
+      position: absolute;
+      top: -10px;
+      color: white;
+      pointer-events: none;
+      animation: snow linear infinite;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 12px #7fffda; }
+      to { text-shadow: 0 0 40px #7fffda; }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(-50%); }
+      50% { transform: translateY(-56%); }
+      100% { transform: translateY(-50%); }
+    }
+
+    @keyframes pulse {
+      0%{opacity:0.4;}50%{opacity:1;}100%{opacity:0.4;}
+    }
+
+    @keyframes snow {
+      to { transform: translateY(110vh); }
+    }
+
+    .letter {
+      background: white;
+      color: #333;
+      padding: 25px;
+      border-radius: 22px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+      animation: pop 0.4s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay"></div>
+  <div class="moon"></div>
+
+  <div class="stars">
+    <span style="top:10%;left:15%"></span>
+    <span style="top:18%;left:40%"></span>
+    <span style="top:12%;left:70%"></span>
+    <span style="top:22%;left:55%"></span>
+    <span style="top:30%;left:25%"></span>
+  </div>
+
+  <div class="church">⛪<div class="candle">🕯️</div></div>
+  <div class="tree-scene">🎄</div>
+  <div class="ground"></div>
+
+  <div class="card">
+    <div class="tree" onclick="playMusic(); openLetter();">🎄</div>
+    <div class="arrow">👉 send a message to <b>Phú</b></div>
+    <h1 id="title">Merry Christmas</h1>
+    <p>
+      Chúc bạn một mùa Giáng Sinh an lành, ấm áp và đầy yêu thương.
+      Mong rằng mọi điều tốt đẹp nhất sẽ đến trong đêm đông này ✨
+    </p>
+    <button onclick="playMusic()">Bật nhạc Noel 🎶</button>
+  </div>
+
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/11/21/audio_8b0c4f3c6e.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="bell">
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_3b1c3c2c9f.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const snowCount = 90;
+    for (let i = 0; i < snowCount; i++) {
+      const snow = document.createElement('div');
+      snow.className = 'snow';
+      snow.innerHTML = '❄';
+      snow.style.left = Math.random() * 100 + 'vw';
+      snow.style.animationDuration = 6 + Math.random() * 8 + 's';
+      snow.style.fontSize = 10 + Math.random() * 24 + 'px';
+      document.body.appendChild(snow);
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('to');
+    if (name) {
+      document.getElementById('title').innerText = `Merry Christmas, ${name}`;
+    }
+
+    const textarea = document.querySelector('textarea');
+    textarea.value = localStorage.getItem('christmasLetter') || '';
+    textarea.addEventListener('input', () => {
+      localStorage.setItem('christmasLetter', textarea.value);
+    });
+
+    function playMusic() {
+      document.getElementById('music').play();
+    }
+
+    function openLetter() {
+      document.getElementById('bell').play();
+      document.getElementById('letterBox').style.display = 'flex';
+    }
+
+    function closeLetter() {
+      document.getElementById('letterBox').style.display = 'none';
+    }
+  </script>
+
+  <div id="letterBox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:10;align-items:center;justify-content:center;">
+    <div class="letter">
+      <h2>💌 Thư Giáng Sinh</h2>
+      <textarea placeholder="Viết lời chúc Noel của bạn ở đây..." style="width:100%;height:130px;border-radius:14px;padding:12px;font-size:15px;"></textarea>
+      <button onclick="closeLetter()" style="margin-top:15px;background:#ff416c">Đóng thư</button>
+    </div>
+  </div>
+
+</body>
+</html>
